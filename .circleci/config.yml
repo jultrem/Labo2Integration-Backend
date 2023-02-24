@@ -3,9 +3,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5.1.0
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   checkoutEtTests:
     docker:
@@ -14,10 +11,7 @@ jobs:
       - run:
           name: "Clone"
           command: "git clone https://github.com/jultrem/Labo2Integration-Backend.git"
-      - run: cd Labo2Integration-Backend && sudo apt install npm
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
+      - run: cd Labo2Integration-Backend && sudo npm install
       - run: npm run tests
   integration-frontend:
       docker:
