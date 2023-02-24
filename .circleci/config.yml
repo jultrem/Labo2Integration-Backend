@@ -32,6 +32,7 @@ jobs:
       docker:
       - image: cimg/node:17.4.0
       steps:
+        - run: ls -al
         - run: cd Labo2Integration-Backend && ls -Rl
         
 
