@@ -12,7 +12,7 @@ jobs:
           name: "Clone"
           command: "git clone https://github.com/jultrem/Labo2Integration-Backend.git"
       - run: cd Labo2Integration-Backend && sudo npm install
-      - run: npm run tests
+      - run: cd Labo2Integration-Backend && npm run tests
   integration-frontend:
       docker:
       - image: cimg/node:17.4.0
