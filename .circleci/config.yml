@@ -31,19 +31,18 @@ jobs:
             override-ci-command: npm install
         - run: npm run build
         - run: cd .. && cd Labo2Integration-Backend && touch public
-        - run: cp ~/Labo2Integration-Frontend/build ~/Labo2Integration-Backend/public 
+        - run: cp ~/Labo2Integration-Frontend/build ~/Labo2Integration-Backend/public
+        - persist_to_workspace:
+                root: .
+                paths:
+                    - 3w5-h22-tp2-backend-test1
+ deploiement:
+      docker:
+      - image: cimg/node:17.4.0
+      steps:
+        - run: cd backend && ls -Rl
+        
 
-
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
