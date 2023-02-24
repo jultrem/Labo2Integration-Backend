@@ -36,7 +36,7 @@ jobs:
                 root: .
                 paths:
                     - 3w5-h22-tp2-backend-test1
- deploiement:
+  deploiement:
       docker:
       - image: cimg/node:17.4.0
       steps:
@@ -49,4 +49,11 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - checkoutEtTests
+      - integration-frontend:
+          requires:
+            - checkoutEtTests
+      - deploiement:
+          requires:
+            - integration-frontend
+
