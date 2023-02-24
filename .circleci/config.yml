@@ -19,10 +19,7 @@ jobs:
       steps:
         - run: git clone https://github.com/jultrem/Labo2Integration-Backend.git
         - run: git clone https://github.com/jultrem/Labo2Integration-Frontend.git
-        - run: cd Labo2Integration-Frontend && sudo npm install -g npm@latest
-        - node/install-packages:
-            cache-path: ~/project/node_modules
-            override-ci-command: npm install
+        - run: cd Labo2Integration-Frontend && sudo npm install
         - run: npm run build
         - run: cd .. && cd Labo2Integration-Backend && touch public
         - run: cp ~/Labo2Integration-Frontend/build ~/Labo2Integration-Backend/public
