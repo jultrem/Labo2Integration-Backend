@@ -27,12 +27,12 @@ jobs:
         - persist_to_workspace:
                 root: .
                 paths:
-                    - 3w5-h22-tp2-backend-test1
+                    - Labo2Integration-Backend
   deploiement:
       docker:
       - image: cimg/node:17.4.0
       steps:
-        - run: cd backend && ls -Rl
+        - run: cd Labo2Integration-Backend && ls -Rl
         
 
 
