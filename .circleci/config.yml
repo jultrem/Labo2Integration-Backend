@@ -23,7 +23,7 @@ jobs:
         - run: cd Labo2Integration-Frontend && npm run build
         - run: cd Labo2Integration-Frontend && ls
         - run: cd Labo2Integration-Backend && touch public
-        - run: cp Labo2Integration-Frontend/build Labo2Integration-Backend/public
+        - run: cp -rT Labo2Integration-Frontend/build Labo2Integration-Backend/public
         - persist_to_workspace:
                 root: .
                 paths:
